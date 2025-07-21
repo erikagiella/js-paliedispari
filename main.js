@@ -25,15 +25,55 @@ function revertWord (word){
     return reverseWord;
 }
 
-//chiedere all'utente di inserire una parola
-const word = prompt('Inserire una parola o frase');
+function isPalindrome (input, reverseInput) {
+    let isPal;
+    if (input === reverseInput){
+        isPal = true;
+    } else {
+        isPal = false;
+    }
+
+    const p = "il risultato della funzione isPalindrome è ";
+    console.log( p + isPal);
+    return isPal;
+}
 
 
-//trasformo la parola in array per poterla invertire
-const wordArray = word.split("");
-console.log(wordArray);
-//passo alla funzione reverseWord l'array contenente la parola: mi restituirà la parola invertita
-const reverseWord = revertWord (wordArray);
+//creo una variabile booleana per identificare se la parola/frase inserita è palindroma o meno
+let isPal;
+
+//chiedo all'utente di inserire una parola o una frase
+const userInput = prompt('Inserire una parola o frase');
+//Se è una frase sarà true altrimenti se è una parola singola è false
+const isWordOrPhrase = userInput.includes(" ");
+console.log(isWordOrPhrase)
+
+//distinguo se è stata inserita una parola o una frase
+if (isWordOrPhrase){
+    console.log ("sei nell'if");
+    //l'input dell'utente è una frase
+    //rimuovo gli spazi dalla frase
+    const phrase = userInput.replace(/\s/g, '');
+    //trasformo la frase in array
+    phraseArray = phrase.split('');
+    //chiamo la funzione che inverte la mia frase (senza spazi)
+    reversePhrase = revertWord (phraseArray);
+    //chiamo la funzione isPalindrome che verifica se la frase è palindroma
+    isPal = isPalindrome(phrase,reversePhrase);
+} else {
+    //l'input dell'utente è una parola
+    console.log ("sei nell'else");
+    //trasformo la parola in array per poterla invertire  
+    const wordArray = userInput.split("");
+    console.log(wordArray);
+    //passo alla funzione reverseWord l'array contenente la parola: mi restituirà la parola invertita
+    const reverseWord = revertWord (wordArray);
+    console.log(reverseWord);
+    isPal = isPalindrome(userInput,reverseWord);
+    console.log (isPal);
+}
+
+
 
 
 
