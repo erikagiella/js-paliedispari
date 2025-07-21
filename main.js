@@ -104,11 +104,62 @@ if (isPal){
 //Elaborazione
 
 //funzione che restituisce un numero random tra 1 e 5
-function randomNum(){
+function randomNumber(){
     const randomNum = Math.floor(Math.random()*(5)) + 1;
-    console.log(randomNum);
+    return randomNum;
+}
+
+//funzione che restituisce true se il numero è paro e false se è dispari
+function oddOrEven (num){
+    let oddOrEven;
+    if (num % 2 === 0){
+        //è pari
+        oddOrEven = true;
+    } else {
+        //è dispari
+        oddOrEven = false;
+    }
+    return oddOrEven;
 }
 
 
+//chiedo all'utente di inserire scegliere pari o dispari
+const userOddEven = prompt ("pari o dispari?");
 
-randomNum();
+//BONUS verifico che l'utente abbia inserito solo le parole pari o dispari 
+//let userOddEven;
+//const isUserChoiceCorrect = false;
+// do{
+//     userOddEven = prompt ("Inserisci un numero da 1 a 5");
+//     //tolgo tutti gli spazi
+//     userOddEven = userOddEven.replace(/ g/,"");
+//     if (userOddEven === "pari" || userOddEven === "dispari"){
+//         isUserChoiceCorrect = true
+//     } else {
+//         console.log ("Numero inserito non incluso nel range, ritenta!")
+//     }
+// }while(!isUserChoiceCorrect);
+
+
+//chiedo all'utente di inserire un numero da 1 a 5,
+const userNum = prompt ("Inserisci un numero da 1 a 5");
+
+//BONUS verifico che il numero inserito dall'utente sia nel range richiesto
+//let userNum;
+//const isUserNumCorrect = false;
+// do{
+//     userNum = prompt ("Inserisci un numero da 1 a 5");
+//     if (userNum>=1 && userNum<=5){
+//         isUserNumCorrect = true
+//     } else {
+//         console.log ("Numero inserito non incluso nel range, ritenta!")
+//     }
+// }while(!isUserNumCorrect);
+
+
+const pcNum = randomNumber();
+console.log(pcNum);
+const sum = parseInt(userNum) + parseInt(pcNum);
+console.log(sum);
+const sumOddEven = oddOrEven (sum);
+console.log(sumOddEven)
