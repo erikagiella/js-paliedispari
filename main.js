@@ -32,9 +32,6 @@ function isPalindrome (input, reverseInput) {
     } else {
         isPal = false;
     }
-
-    const p = "il risultato della funzione isPalindrome è ";
-    console.log( p + isPal);
     return isPal;
 }
 
@@ -50,7 +47,6 @@ console.log(isWordOrPhrase)
 
 //distinguo se è stata inserita una parola o una frase
 if (isWordOrPhrase){
-    console.log ("sei nell'if");
     //l'input dell'utente è una frase
     //rimuovo gli spazi dalla frase
     const phrase = userInput.replace(/\s/g, '');
@@ -62,7 +58,6 @@ if (isWordOrPhrase){
     isPal = isPalindrome(phrase,reversePhrase);
 } else {
     //l'input dell'utente è una parola
-    console.log ("sei nell'else");
     //trasformo la parola in array per poterla invertire  
     const wordArray = userInput.split("");
     console.log(wordArray);
@@ -70,11 +65,13 @@ if (isWordOrPhrase){
     const reverseWord = revertWord (wordArray);
     console.log(reverseWord);
     isPal = isPalindrome(userInput,reverseWord);
-    console.log (isPal);
 }
 
-
-
+if (isPal){
+    console.log(`La parola/frase inserita "${userInput}" è palindroma!`)
+} else {
+    console.log(`La parola/frase inserita "${userInput}" non è palindroma!`)
+}
 
 
 
