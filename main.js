@@ -5,13 +5,19 @@
 /*Tools:
 -let/const 
 -prompt
--funzione isPalindrome (return booleano - deve verificare che la parola inserita è palindroma)
--funzione revertWord (return parola invertita - c)
+-funzione isPalindrome (return booleano - deve verificare che la parola/frase inserita è palindroma)
+-funzione revertWord (return parola invertita)
 -metodo split (per convertire parola in array)
 -metodo join (per riconvertire array in parola)
+-metodo replace (per eliminare spazi nella frase)
+-if/else
+-ciclo for
 -console.log (stampa del risultato)
 */
 
+/*
+
+//Elaborazione
 
 //funzione revertWord per invertire la parola inserita dall'utente
 function revertWord (word){
@@ -67,13 +73,15 @@ if (isWordOrPhrase){
     isPal = isPalindrome(userInput,reverseWord);
 }
 
+
+//stampa del risultato
 if (isPal){
     console.log(`La parola/frase inserita "${userInput}" è palindroma!`)
 } else {
     console.log(`La parola/frase inserita "${userInput}" non è palindroma!`)
 }
 
-
+*/
 
 // Pari e Dispari
 // L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
@@ -81,3 +89,26 @@ if (isPal){
 // Sommiamo i due numeri
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
+
+//
+
+/*Tools:
+-let/const 
+-prompt
+-funzione randomNum (return numero da 1 a 5 random)
+-funzione oddOrEven (ritorna true se pari, false se dispari)
+-if/else
+-console.log (stampa del risultato)
+*/
+
+//Elaborazione
+
+//funzione che restituisce un numero random tra 1 e 5
+function randomNum(){
+    const randomNum = Math.floor(Math.random()*(5)) + 1;
+    console.log(randomNum);
+}
+
+
+
+randomNum();
