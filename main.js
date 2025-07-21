@@ -103,9 +103,9 @@ if (isPal){
 
 //Elaborazione
 
-//funzione che restituisce un numero random tra 1 e 5
-function randomNumber(){
-    const randomNum = Math.floor(Math.random()*(5)) + 1;
+//funzione che restituisce un numero random tra 1 e 5 (min e max) --> funzione più flessibile se gli passo come parametri gli estremi del range
+function randomNumber(min,max){
+    const randomNum = Math.floor(Math.random()*(max - min + 1)) + min;
     return randomNum;
 }
 
@@ -114,10 +114,10 @@ function oddOrEven (num){
     let oddOrEven;
     if (num % 2 === 0){
         //è pari
-        oddOrEven = true;
+        oddOrEven = "pari";
     } else {
         //è dispari
-        oddOrEven = false;
+        oddOrEven = "dispari";
     }
     return oddOrEven;
 }
@@ -126,40 +126,23 @@ function oddOrEven (num){
 //chiedo all'utente di inserire scegliere pari o dispari
 const userOddEven = prompt ("pari o dispari?");
 
-//BONUS verifico che l'utente abbia inserito solo le parole pari o dispari 
-//let userOddEven;
-//const isUserChoiceCorrect = false;
-// do{
-//     userOddEven = prompt ("Inserisci un numero da 1 a 5");
-//     //tolgo tutti gli spazi
-//     userOddEven = userOddEven.replace(/ g/,"");
-//     if (userOddEven === "pari" || userOddEven === "dispari"){
-//         isUserChoiceCorrect = true
-//     } else {
-//         console.log ("Numero inserito non incluso nel range, ritenta!")
-//     }
-// }while(!isUserChoiceCorrect);
 
 
 //chiedo all'utente di inserire un numero da 1 a 5,
 const userNum = prompt ("Inserisci un numero da 1 a 5");
 
-//BONUS verifico che il numero inserito dall'utente sia nel range richiesto
-//let userNum;
-//const isUserNumCorrect = false;
-// do{
-//     userNum = prompt ("Inserisci un numero da 1 a 5");
-//     if (userNum>=1 && userNum<=5){
-//         isUserNumCorrect = true
-//     } else {
-//         console.log ("Numero inserito non incluso nel range, ritenta!")
-//     }
-// }while(!isUserNumCorrect);
-
-
-const pcNum = randomNumber();
-console.log(pcNum);
-const sum = parseInt(userNum) + parseInt(pcNum);
-console.log(sum);
+//inserisco in pcNum il numero random che ho generato
+const pcNum = randomNumber(1,5);
+//sommo i due numeri trasformando in numero l'input dell'utente
+const sum = parseInt(userNum) + pcNum;
+//verifico se la somma è pari o dispari
 const sumOddEven = oddOrEven (sum);
-console.log(sumOddEven)
+
+//Risultato
+//se il contenuto della variabile booleana che indica se il risultato è pari o dispari è uguale alla scelta dell'utente, ha vinto
+if (sumOddEven === userOddEven){
+    alert(`Hai scelto ${userOddEven}, il numero generato è ${sum}: HAI VINTO!`)
+} else {
+    //altrimenti l'utente ha perso
+    alert(`Hai scelto ${userOddEven}, il numero generato è ${sum}: HAI PERSO!`)
+}
